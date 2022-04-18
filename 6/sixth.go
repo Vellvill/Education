@@ -9,7 +9,7 @@ import (
 func main() {
 	first()  //using special empty struct channel
 	second() //using context.WithTimeOut
-	third()
+	third()  //using context.WithCancel
 }
 
 func first() {
