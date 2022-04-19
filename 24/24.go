@@ -1,3 +1,10 @@
+/*
+Разработать программу нахождения расстояния между двумя точками,
+которые представлены в виде структуры Point с инкапсулированными параметрами
+x,y и конструктором.
+
+*/
+
 package main
 
 import (
@@ -83,15 +90,5 @@ func (pl *Plane) visualise() {
 
 func main() {
 	MyPlane := newPlane()
-	A := newPoint(3, 5, "A")
-	B := newPoint(5, 7, "B")
-	C := newPoint(4, 7, "C")
-	D := newPoint(5, 8, "D")
-	E := newPoint(46, 34, "E")
-	MyPlane.addPoints(A, B, C, D, E)
-	g1 := MyPlane.findAllDistances(A)
-	for k, v := range g1 {
-		fmt.Printf("%s is %f\n", k, v)
-	}
 	MyPlane.visualise()
 }

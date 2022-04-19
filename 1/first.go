@@ -1,3 +1,8 @@
+/*
+Дана структура Human (с произвольным набором полей и методов).
+Реализовать встраивание методов в структуре Action от родительской структуры Human (аналог наследования).
+*/
+
 package main
 
 type Human struct {
@@ -6,7 +11,6 @@ type Human struct {
 	Action
 }
 type Action struct {
-	run   bool
-	fire  bool
-	sleep bool
+	run  bool
+	fire bool
 }

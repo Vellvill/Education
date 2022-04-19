@@ -1,10 +1,10 @@
-package main
-
-import "fmt"
-
 /*
 Реализовать пересечение двух неупорядоченных множеств.
 */
+
+package main
+
+import "fmt"
 
 func main() {
 	array1 := []int{6, 4, 3, 6, 1, 2, 3, 7, 5, 6}

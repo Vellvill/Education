@@ -1,8 +1,8 @@
-package twelve
-
 /*
 Имеется последовательность строк - (cat, cat, dog, cat, tree) создать для нее собственное множество.
 */
+
+package twelve
 
 func Solution(arr []string) []string {
 	if len(arr) < 2 {
