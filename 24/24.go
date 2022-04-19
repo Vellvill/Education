@@ -29,7 +29,7 @@ func fillPlane() [10][10]string {
 	pl := [10][10]string{}
 	for i := 0; i < len(pl); i++ {
 		for j := 0; j < len(pl[i]); j++ {
-			pl[i][j] = " "
+			pl[i][j] = " ○ "
 		}
 	}
 	return pl
@@ -66,7 +66,7 @@ func (pl *Plane) addPoints(p ...*Point) error {
 				return fmt.Errorf("Point `%s` already exists\n", point.name)
 			} else {
 				if point.x <= 10 && point.y <= 10 {
-					pl.plane[int(point.y-1)][int(point.x-1)] = point.name
+					pl.plane[int(point.y-1)][int(point.x-1)] = " ● "
 				}
 				pl.points[point.name] = point
 			}
