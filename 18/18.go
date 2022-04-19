@@ -6,18 +6,21 @@ import (
 	"sync/atomic"
 )
 
+//inc + Mutex + Waitgroup
 type inc struct {
 	num int
 	sync.Mutex
 	sync.WaitGroup
 }
 
+//inc2 + Channels
 type inc2 struct {
 	num         int
 	chMutex     chan struct{}
 	chWaitGroup chan struct{}
 }
 
+//inc3 + Atomic
 type inc3 struct {
 	num int64
 	sync.WaitGroup
