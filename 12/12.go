@@ -1,17 +1,13 @@
-package main
-
-import "fmt"
+package twelve
 
 /*
 Имеется последовательность строк - (cat, cat, dog, cat, tree) создать для нее собственное множество.
 */
 
-func main() {
-	strings := []string{"cat", "cat", "dog", "cat", "tree"}
-	fmt.Println(solution(strings))
-}
-
-func solution(arr []string) []string {
+func Solution(arr []string) []string {
+	if len(arr) < 2 {
+		return arr
+	}
 	m := make(map[string]int)
 	res := make([]string, 0)
 	for _, v := range arr {
@@ -21,6 +17,9 @@ func solution(arr []string) []string {
 			res = append(res, v)
 			m[v] = 1
 		}
+	}
+	if len(res) == 0 {
+		return arr
 	}
 	return res
 }

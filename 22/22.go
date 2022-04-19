@@ -1,1 +1,5 @@
-package _2
+package main
+
+func main() {
+	//TODO()
+}

@@ -5,9 +5,6 @@ import (
 	"strings"
 )
 
-func main() {
-}
-
 func IsUnique(str string) bool {
 	str = strings.ToLower(str)
 	mapa := make(map[rune]int)
