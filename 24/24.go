@@ -45,6 +45,18 @@ func (pl *Plane) findDistance(p1, p2 *Point) (float64, error) {
 	return 0, fmt.Errorf("Point 1 don't exists\n")
 }
 
+func (pl *Plane) findAllDistances(p *Point) map[string]float64 {
+	g := make(map[string]float64)
+	for _, v := range pl.points {
+		value, err := pl.findDistance(p, v)
+		if err != nil {
+			fmt.Println(err)
+		}
+		g[fmt.Sprintf("destance between %s and %s", p.name, v.name)] = value
+	}
+	return g
+}
+
 func (pl *Plane) addPoints(p ...*Point) error {
 	if len(p) == 0 {
 		return fmt.Errorf("Add at least 1 point\n")
@@ -63,14 +75,23 @@ func (pl *Plane) addPoints(p ...*Point) error {
 	return nil
 }
 
+func (pl *Plane) visualise() {
+	for i := len(pl.plane) - 1; i >= 0; i-- {
+		fmt.Printf("%v\n", pl.plane[i])
+	}
+}
+
 func main() {
 	MyPlane := newPlane()
 	A := newPoint(3, 5, "A")
 	B := newPoint(5, 7, "B")
 	C := newPoint(4, 7, "C")
 	D := newPoint(5, 8, "D")
-	MyPlane.addPoints(A, B, C, D)
-	for i := len(MyPlane.plane) - 1; i >= 0; i-- {
-		fmt.Printf("%v\n", MyPlane.plane[i])
+	E := newPoint(46, 34, "E")
+	MyPlane.addPoints(A, B, C, D, E)
+	g1 := MyPlane.findAllDistances(A)
+	for k, v := range g1 {
+		fmt.Printf("%s is %f\n", k, v)
 	}
+	MyPlane.visualise()
 }
