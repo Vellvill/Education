@@ -30,9 +30,6 @@ func main() {
 func writer(ctx context.Context, ch chan<- int) {
 	for {
 		select {
-		case <-ctx.Done():
-			fmt.Println("time expired, writer")
-			return
 		default:
 			ch <- rand.Intn(100)
 		}

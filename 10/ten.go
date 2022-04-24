@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	temperatures := []float64{-25.0, -27.0, -21.0, 13.0, 19.0, 15.5, 24.5, 6.0, -7.0, 4.0}
+	temperatures := []float64{-25.4, -27.0, 13.0, 19.0, 15.5, 24.5, -21.0, 32.5}
 
 	groups := make(map[float64][]float64)
 

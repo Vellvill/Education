@@ -28,6 +28,7 @@ func main() {
 	}()
 
 	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
 	signalChan := make(chan os.Signal, 1)
 	wg := new(sync.WaitGroup)
 	signal.Notify(signalChan, os.Interrupt)
@@ -37,6 +38,7 @@ func main() {
 			cancel()
 		}
 	}()
+
 	var workers int
 	fmt.Println("Insert number of workers:")
 	_, _ = fmt.Scan(&workers)
@@ -54,7 +56,8 @@ func worker(ctx context.Context, ch <-chan int, wg *sync.WaitGroup) {
 			fmt.Printf("%d\n", <-ch)
 		case <-ctx.Done():
 			fmt.Printf("catched ctrl+c signal\n")
-			wg.Done()
+			defer wg.Done()
+			return
 		}
 	}
 }

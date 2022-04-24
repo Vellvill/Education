@@ -18,7 +18,6 @@ func main() {
 	fmt.Println("\n--- Sorted ---\n\n", slice, "\n")
 }
 
-// Generates a slice of size, size filled with random numbers
 func generateSlice(size int) []int {
 
 	slice := make([]int, size, size)

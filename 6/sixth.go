@@ -7,6 +7,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -14,6 +15,7 @@ func main() {
 	first()  //using special empty struct channel
 	second() //using context.WithTimeOut
 	third()  //using context.WithCancel
+	fourth()
 }
 
 func first() {
@@ -34,6 +36,7 @@ func second() {
 func third() {
 	ch := make(chan struct{})
 	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
 	go func() {
 		select {
 		case <-time.After(10 * time.Second):
@@ -42,6 +45,10 @@ func third() {
 	}()
 	go routine(ch, ctx)
 	time.Sleep(15 * time.Second)
+}
+
+func fourth() {
+	os.Exit(1)
 }
 
 func routine(done <-chan struct{}, ctx context.Context) {
