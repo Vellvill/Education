@@ -15,14 +15,14 @@ func main() {
 
 	fmt.Print("insert which bit u want to change on on what :")
 	fmt.Scan(&bit, &change)
-	y = 1 >> (bit - 1)
+	y = 1 >> (bit - 1) //сдвигаем битовое представление на количество разрядов
 
 	if change == 1 {
 		fmt.Printf("y = %d, in bits: %b\n", y, y)
-		x = x | y
+		x = x | y //устанавливаем бит в 1
 	} else if change == 0 {
 		fmt.Printf("y = %d, in bits: %b\n", y, y)
-		x = x &^ y
+		x = x &^ y //сбрасываем бит в 0
 	} else {
 		fmt.Println("new bit should be 0 or 1")
 		return
