@@ -3,19 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	a := []string{"a", "b", "c", "d", "e", "f"}
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
-	deleteFast(1, a)
+	delete(2, a)
 }
 
-func deleteFast(i int, ar []string) {
+func delete(i int, ar []int) {
 	ar[i] = ar[len(ar)-1] //копируем последний элемент в индекс i
 	ar = ar[:len(ar)-1]   //усекаем срез
 	fmt.Println(ar)
 }
 
-func deleteSlow(i int, ar []string) {
-	copy(ar[i:], ar[i+1:]) //сдвиг влево на один индекс
-	ar = ar[:len(ar)-1]    //усечь
-	fmt.Println(ar)
-}

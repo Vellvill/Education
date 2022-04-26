@@ -31,6 +31,10 @@ func Test_isUnique(t *testing.T) {
 			"qwertyuiop",
 			true,
 		},
+		{
+			"34gsdafGS5d5h",
+			false,
+		},
 	}
 
 	for _, test := range tests {
