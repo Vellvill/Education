@@ -4,6 +4,7 @@ import "fmt"
 
 func main() {
 	a := []string{"a", "b", "c", "d", "e", "f"}
+
 	deleteFast(1, a)
 }
 

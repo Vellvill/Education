@@ -29,16 +29,17 @@ func generateSlice(size int) []int {
 }
 
 func quicksort(a []int) []int {
-	if len(a) < 2 {
+	if len(a) < 2 { //если в слайсе 0 или 1 элемент - возвращаем его сразу
 		return a
 	}
 
-	left, right := 0, len(a)-1
+	left, right := 0, len(a)-1 //задаём границы сортируемого слайса
 
-	pivot := rand.Int() % len(a)
+	pivot := (left + right) / 2 // создаём опорную точку
 
-	a[pivot], a[right] = a[right], a[pivot]
+	a[pivot], a[right] = a[right], a[pivot] //меняем местами крайний правый и опорный
 
+	//отбрасываем левее всё что меньше pivot'а
 	for i, _ := range a {
 		if a[i] < a[right] {
 			a[left], a[i] = a[i], a[left]

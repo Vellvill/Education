@@ -90,5 +90,10 @@ func (pl *Plane) visualise() {
 
 func main() {
 	MyPlane := newPlane()
+	A := newPoint(2, 7, "A")
+	B := newPoint(7, 9, "B")
+	MyPlane.addPoints(A, B)
+	d, _ := MyPlane.findDistance(A, B)
+	fmt.Printf("%.2f\n", d)
 	MyPlane.visualise()
 }

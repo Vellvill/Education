@@ -17,7 +17,7 @@ func main() {
 		return
 	} else {
 		ns := justString(cutter, a)
-		fmt.Printf("new string is %d", len(ns))
+		fmt.Printf("new string is %s", ns)
 	}
 }
 
